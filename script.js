@@ -1,25 +1,35 @@
 function threeSum(arr, target) {
 // write your code here
-	let ans = [];
-	let diff = 100000;
-  for(let i=0;i<arr.length-2;i++){
-	  let x = arr[i];
-	  for(let j=i+1;j<arr.length-1;j++){
-		  let y = arr[j];
-		  for(let k=j+1;k<arr.length;k++){
-			  let z = arr[k];
-			  
-			  let currdiff = target - (x + y + z);
-			  if(currdiff < 0) currdiff *= -1;
-			  //console.log(currdiff,x,y,z);
-			  if(currdiff < diff){
-				  diff = currdiff;
-				  ans[0] = x ; ans[1] = y; ans[2] = z;
-			  }
-		  }
-	  }
-  }
-	return ["message: ",diff];
+	nums.sort((a, b) => a - b);
+	let diff = Infinity;
+	let ansSum = Infinity;
+
+	for(let i=0;i<arr.length-2;i++){
+		let left = i+1;
+		let right = arr.length-1;
+
+		while(left < right){
+			let sum = arr[i] + arr[left] + arr[right];
+			let currDiff = Math.abs(target - sum);
+
+			if(sum === target){
+				return sum;
+			}
+			if(currDiff < diff){
+				diff = currDiff;
+				ansSum =  sum;
+			}
+
+			if(sum < target){
+				left++;
+			}
+			else{
+				right++;
+			}
+			
+		}
+	}
+	return ansSum;
 }
 
 module.exports = threeSum;
