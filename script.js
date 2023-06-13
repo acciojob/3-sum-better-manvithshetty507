@@ -1,7 +1,7 @@
 function threeSum(arr, target) {
 // write your code here
 	let ans = [];
-	diff = 100000;
+	let diff = 100000;
   for(let i=0;i<arr.length-2;i++){
 	  let x = arr[i];
 	  for(let j=i+1;j<arr.length-1;j++){
@@ -19,7 +19,7 @@ function threeSum(arr, target) {
 		  }
 	  }
   }
-	return diff;
+	return ["message: ",diff];
 }
 
 module.exports = threeSum;
