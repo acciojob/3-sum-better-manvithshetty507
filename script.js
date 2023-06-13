@@ -8,15 +8,18 @@ function threeSum(arr, target) {
 		  let y = arr[j];
 		  for(let k=j+1;k<arr.length;k++){
 			  let z = arr[k];
-			  if(target - (x + y + z) < diff){
-				  diff = target - (x + y + z);
+			  
+			  let currdiff = target - (x + y + z);
+			  if(currdiff < 0) currdiff *= -1;
+			  //console.log(currdiff,x,y,z);
+			  if(currdiff < diff){
+				  diff = currdiff;
 				  ans[0] = x ; ans[1] = y; ans[2] = z;
 			  }
 		  }
 	  }
   }
 	return ans;
-  
 }
 
 module.exports = threeSum;
