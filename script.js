@@ -19,7 +19,7 @@ function threeSum(arr, target) {
 		  }
 	  }
   }
-	return ans;
+	return diff;
 }
 
 module.exports = threeSum;
